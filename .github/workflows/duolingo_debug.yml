@@ -42,11 +42,13 @@ jobs:
           pip install -r requirements.txt
       - name: Set up secret file
         env:
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          JWT: ${{ secrets.JWT }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_PAGE: ${{ secrets.NOTION_PAGE }}
         run: |
-          echo $REFRESH_TOKEN >> secrets.txt
+          echo $USER_NAME >> secrets.txt
+          echo $JWT >> secrets.txt
           echo $NOTION_TOKEN >> secrets.txt
           echo $NOTION_PAGE >> secrets.txt
       - name: push
